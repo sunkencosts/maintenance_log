@@ -10,6 +10,7 @@ import { ItemListComponent } from './item-list/item-list/item-list.component';
 import { RepairItemComponent } from './item-list/repair-item/repair-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
     DashboardComponent,
     ItemListComponent,
     RepairItemComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,30 @@
-<p>Glove box log</p>
+<header>
+  <mat-toolbar color="primary">
+    <span routerLink="/">My Kingston</span>
+    <span class="header-spacer"></span>
 
-<div *ngIf="auth.user$ | async as user; else login">
-  <pre>
-    {{ user | json }}
-  </pre>
-
-  <hr />
-  <button class="button" (click)="auth.signOut()">Sign Out</button>
-</div>
-<ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Sign in</button>
-</ng-template>
-
-<button routerLink="dashboard">Dashboard</button>
-<router-outlet></router-outlet>
+    <span *ngIf="auth.user$ | async as user">{{ user.displayName }} </span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        *ngIf="auth.user$ | async as user; else login"
+        mat-menu-item
+        (click)="auth.signOut()"
+      >
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+      <ng-template #login>
+        <button mat-menu-item (click)="auth.googleSignin()">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+      </ng-template>
+    </mat-menu>
+  </mat-toolbar>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

@@ -2,6 +2,6 @@
 
 export interface RepairItem {
   description: string;
-  cost: string;
+  cost: number;
   date: Date;
 }
