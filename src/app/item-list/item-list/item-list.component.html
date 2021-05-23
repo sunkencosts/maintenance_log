@@ -1,7 +1,9 @@
 <h1>Item list</h1>
-<button (click)="onClick()">Add item</button>
+<app-repair-item></app-repair-item>
+
 <ul>
   <li class="text" *ngFor="let item of items | async">
-    {{ item.name }}
+    Description: {{ item.description }} Cost: {{ item.cost }} Date:
+    {{ item?.date.toDate() | date }}
   </li>
 </ul>

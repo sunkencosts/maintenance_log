@@ -18,8 +18,4 @@ export class ItemListComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.items);
   }
-
-  onClick() {
-    this.itemService.add({ name: 'Ben', cost: '100', date: null });
-  }
 }
