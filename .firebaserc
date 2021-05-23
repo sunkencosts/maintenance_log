@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "maintenance-log-7c95f": {
+      "hosting": {
+        "maintenance-log": [
+          "maintenance-log-7c95f"
+        ]
+      }
+    }
+  }
+}
