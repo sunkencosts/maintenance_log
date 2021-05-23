@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ItemListComponent } from './item-list/item-list/item-list.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent],
+  declarations: [AppComponent, DashboardComponent, ItemListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
