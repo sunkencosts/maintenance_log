@@ -21,6 +21,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   exports: [
@@ -46,6 +47,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSelectModule,
     MatCheckboxModule,
     MatDividerModule,
+    MatSortModule,
   ],
 })
 export class MaterialModule {}

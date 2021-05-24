@@ -1,20 +1,68 @@
 <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="outline">
-    <mat-label>Description</mat-label>
-    <input type="text" formControlName="description" matInput />
-  </mat-form-field>
+  <h1 mat-dialog-title>New maintenance entry</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date" [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Cost</mat-label>
-    <input type="text" formControlName="cost" matInput currencyMask />
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>What</mat-label>
+      <input
+        type="text"
+        formControlName="what"
+        matInput
+        placeholder="Ex. Oil change"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Date</mat-label>
-    <input matInput formControlName="date" [matDatepicker]="picker" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Odometer</mat-label>
+      <input type="text" formControlName="kms" matInput />
+      <mat-error> Odometer reading must only contain numbers</mat-error>
+    </mat-form-field>
 
-  <button mat-button type="submit">Add item</button>
+    <mat-form-field appearance="outline">
+      <mat-label>Service provider</mat-label>
+      <input
+        type="text"
+        formControlName="serviceProvider"
+        matInput
+        placeholder="Ex. Costco automotive"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cost</mat-label>
+      <input
+        type="text"
+        formControlName="cost"
+        matInput
+        currencyMask
+        [options]="{ align: 'LEFT', allowNegative: 'FALSE' }"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Extra details</mat-label>
+      <textarea
+        formControlName="details"
+        matInput
+        placeholder="Ex. High mileage fitler and sythentic oil..."
+      ></textarea>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button
+        [disabled]="!itemForm.valid"
+        mat-button
+        type="submit"
+        color="primary"
+      >
+        Save
+      </button>
+      <button mat-button mat-dialog-close color="warn">Cancel</button>
+    </div>
+  </div>
 </form>

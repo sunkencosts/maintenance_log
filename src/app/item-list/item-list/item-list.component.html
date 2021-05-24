@@ -1,14 +1,21 @@
-<table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+<table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows
+  matSort
+  matSortActive="date"
+  matSortDirection="desc"
+>
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
     <td mat-cell *matCellDef="let element">
       {{ element.date.toDate() | date }}
     </td>
   </ng-container>
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Description</th>
+  <ng-container matColumnDef="what">
+    <th mat-header-cell *matHeaderCellDef>What</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.description }}
+      {{ element.what }}
     </td>
   </ng-container>
   <ng-container matColumnDef="cost">

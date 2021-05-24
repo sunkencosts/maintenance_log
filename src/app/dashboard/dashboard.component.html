@@ -1,6 +1,8 @@
 <div class="dashboard">
-  <h2>New maintenance entry</h2>
-  <app-repair-item></app-repair-item>
+  <button mat-fab (click)="newItemDialog()" class="add-button">
+    <mat-icon>add</mat-icon>
+  </button>
+
   <h2>Maintenance history</h2>
   <app-item-list></app-item-list>
 </div>

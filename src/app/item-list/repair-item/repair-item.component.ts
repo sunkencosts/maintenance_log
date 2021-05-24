@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { RepairItemService } from 'src/app/services/repair-item.service';
 
 @Component({
@@ -11,17 +12,22 @@ export class RepairItemComponent implements OnInit {
   itemForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private itemService: RepairItemService
+    private itemService: RepairItemService,
+    private dialogRef: MatDialogRef<RepairItemComponent>
   ) {}
 
   ngOnInit(): void {
     this.itemForm = this.fb.group({
-      description: [''],
+      what: [''],
+      kms: ['', Validators.pattern('[0-9]+')],
+      details: [''],
       cost: [''],
-      date: [null],
+      date: [new Date()],
+      serviceProvider: [''],
     });
   }
   onSubmit() {
     this.itemService.add(this.itemForm.value);
+    this.dialogRef.close();
   }
 }
