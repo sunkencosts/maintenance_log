@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { RepairItemService } from 'src/app/services/repair-item.service';
+import { LogItemService } from 'src/app/services/log-item.service';
 
 @Component({
-  selector: 'app-repair-item',
-  templateUrl: './repair-item.component.html',
-  styleUrls: ['./repair-item.component.css'],
+  selector: 'app-log-item',
+  templateUrl: './log-item.component.html',
+  styleUrls: ['./log-item.component.css'],
 })
-export class RepairItemComponent implements OnInit {
+export class LogItemComponent implements OnInit {
   itemForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private itemService: RepairItemService,
-    private dialogRef: MatDialogRef<RepairItemComponent>
+    private itemService: LogItemService,
+    private dialogRef: MatDialogRef<LogItemComponent>
   ) {}
 
   ngOnInit(): void {
     this.itemForm = this.fb.group({
-      what: [''],
+      service: [''],
       kms: ['', Validators.pattern('[0-9]+')],
       details: [''],
       cost: [''],

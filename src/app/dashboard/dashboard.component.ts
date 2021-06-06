@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { RepairItemComponent } from '../item-list/repair-item/repair-item.component';
+import { LogItemComponent } from '../item-list/log-item/log-item.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +13,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {}
 
   newItemDialog() {
-    this.dialog.open(RepairItemComponent);
+    this.dialog.open(LogItemComponent);
   }
 }

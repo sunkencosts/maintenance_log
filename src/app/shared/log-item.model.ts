@@ -1,7 +1,7 @@
 //interface for a repair/maintenance item
 
-export interface RepairItem {
-  what: string;
+export interface LogItem {
+  service: string;
   details: string;
   kms: number;
   cost: number;

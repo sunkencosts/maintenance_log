@@ -3,8 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
-import { RepairItemService } from 'src/app/services/repair-item.service';
-import { RepairItem } from 'src/app/shared/repair-item.model';
+import { LogItemService } from 'src/app/services/log-item.service';
+import { LogItem } from 'src/app/shared/log-item.model';
 
 @Component({
   selector: 'app-item-list',
@@ -12,13 +12,13 @@ import { RepairItem } from 'src/app/shared/repair-item.model';
   styleUrls: ['./item-list.component.css'],
 })
 export class ItemListComponent implements OnInit, AfterViewInit {
-  items: Observable<RepairItem[]>;
-  dataSource = new MatTableDataSource<RepairItem>();
-  columnsToDisplay: string[] = ['date', 'what', 'cost'];
+  items: Observable<LogItem[]>;
+  dataSource = new MatTableDataSource<LogItem>();
+  columnsToDisplay: string[] = ['date', 'service', 'cost'];
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private itemService: RepairItemService) {
-    this.itemService.repairItems.subscribe((items) => {
+  constructor(private itemService: LogItemService) {
+    this.itemService.LogItems.subscribe((items) => {
       this.dataSource = new MatTableDataSource([...items]);
       this.dataSource.sort = this.sort;
     });
